@@ -1,0 +1,26 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namph2102/express.git"
+  },
+  "author": "Hoài Nam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namph2102/express/issues"
+  },
+  "homepage": "https://github.com/namph2102/express#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
