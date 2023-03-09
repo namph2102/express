@@ -2,10 +2,12 @@
   "name": "express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "commonjs",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect index.js"
+    "start": "nodemon --inspect ./src/index.js",
+    "watch": "node-sass --watch src/resources/scss -o src/resources/public/css"
   },
   "repository": {
     "type": "git",
@@ -18,9 +20,12 @@
   },
   "homepage": "https://github.com/namph2102/express#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.1"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^8.0.0",
     "nodemon": "^2.0.21"
   }
 }
