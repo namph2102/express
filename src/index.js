@@ -4,15 +4,21 @@ const morgan = require("morgan");
 const path = require("path");
 const app = express();
 const port = 3000;
+const route = require("./routes");
+// app.use(morgan("combined"));
 
-app.use(morgan("combined"));
 app.use(express.static(path.join(__dirname, "resources\\public")));
+app.use(express.urlencoded({ extended: true }));
 
 app.engine("hbs", engine({ extname: ".hbs" }));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources\\views"));
 
-app.get("/", (req, res) => {
-  res.render("new");
+app.get("/", function (req, res) {
+  res.render("home");
 });
-app.listen(3000);
+route(app);
+
+app.listen(port, () => {
+  console.log("adsdsa");
+});
