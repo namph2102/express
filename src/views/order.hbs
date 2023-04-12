@@ -1,0 +1,188 @@
+<style>
+    .btn_status {
+        background-color: rgb(1, 78, 1);
+        padding: 8px 12px;
+        color: white;
+        border-radius: 8px;
+        text-transform: capitalize;
+    }
+
+    #viewProduct_container {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+    }
+
+    .modal_view-product {
+        margin-top: 100px;
+        min-width: 400px;
+        background-color: white;
+        position: relative;
+        padding: 12px 0;
+    }
+
+    .btn-success {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .modal_cart.hidden {
+        display: none;
+    }
+
+    .order-container {
+        margin: 24px 0;
+        min-height: 40vh;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    .order-title {
+        margin: 24px 0;
+    }
+
+    .table-header tr td {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+</style>
+
+<div id="viewProduct_container" class="modal_cart hidden">
+    <div class="modal_view-product container">
+        <button class="btn_close-view btn btn-success p-3">X</button>
+        <h1 class="text-center p-4 fs-1 fw-bold">Danh sách đơn hàng</h1>
+        <table class="table p-4">
+            <thead>
+                <tr>
+                    <td>Tên sản phẩm</td>
+                    <td>Ảnh</td>
+                    <td>Giá</td>
+                    <td>Số lượng</td>
+                    <td>Tổng</td>
+                </tr>
+            </thead>
+            <tbody id="listItems">
+                <tr></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container ">
+    <div class="order-container">
+        <h1 class="text-center  fs-1 fw-bold order-title">Đơn hàng của bạn</h1>
+        <table class="table">
+            <thead class="table-header">
+                <tr>
+                    <td>Mã đơn hàng</td>
+                    <td>Người nhận</td>
+                    <td>Số điện thoại</td>
+                    <td>Địa chỉ</td>
+                    <td>Thời gian</td>
+                    <td>Trạng thái</td>
+                    <td>Xem sản phẩm</td>
+                </tr>
+            </thead>
+            <tbody id="listimform">
+                <tr>
+                    <td>145552</td>
+                    <td>Phạm Hoài Nam</td>
+                    <td>0877669990</td>
+                    <td>2124 đông hưng thuận</td>
+                    <td><span class="btn_status">Chờ Xác nhận</span></td>
+                    <td><button onclick="handleSubmit('642fac9728491acc28f4f743')" class="btn btn-info fs-4">Xem đơn
+                            hàng</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    const container = document.querySelector(".navigation__box");
+    const html = `</li>  <li class="product__navition--name"> <a href="">Đơn hàng</a> </li>`;
+    container.insertAdjacentHTML("beforeend", html);
+    const listItems = document.getElementById("listItems");
+    const modal_cart = document.querySelector("#viewProduct_container");
+    const listimform = document.querySelector("#listimform");
+
+    const user = JSON.parse(localStorage.getItem("user")).username ?? "";
+    console.log(user)
+    $.post("/cart/listorder", { username: user }, (res => {
+        const listorder = res.data;
+        listimform.innerHTML = listorder.map(item => {
+
+            const status = item.status == 'hoàn thành' ? "Đã Hoàn Thành" : `Chờ ${item.status}`;
+            return `<tr>
+                    <td>#${item._id.slice(-4)}</td>
+                    <td>${item.user.fullname}</td>
+                    <td>0${item.user.phone}</td>
+                    <td>${item.user.address}</td>
+                           <td>${new Date(item.updatedAt).toLocaleString("en-vi")}</td>
+                    <td><span class="btn_status"> ${status}</span></td>
+                    <td><button onclick="handleSubmit('${item._id}')" class="btn btn-info fs-4">Xem đơn
+                            hàng</button></td>
+                </tr>`;
+        }).join("");
+    }))
+    console.log(document.querySelector(".btn_close-view"))
+    document.querySelector(".btn_close-view").addEventListener("click", () => {
+        console.log(modal_cart)
+        modal_cart.classList.toggle("hidden");
+    });
+    let sum = 0;
+    function handleSubmit(id) {
+        sum = 0;
+        $.post("/cart/showcart", { _id: id }, function (data) {
+
+            listItems.innerHTML = data.listData
+                .map(
+                    (product) => {
+                        sum += product.item.priceSale *
+                            1000 *
+                            product.amount;
+                        return ` <tr>
+                        <td>${product.item.name}</td>
+                        <td><img src="${product.item.avatar
+                            }" width="50px" height="50px" alt=""></td>
+                        <td>${(product.item.priceSale * 1000).toLocaleString(
+                                "en-vi"
+                            )} đ</td>
+                        <td>${product.amount}</td>
+                        <td>${(
+                                product.item.priceSale *
+                                1000 *
+                                product.amount
+                            ).toLocaleString("en-vi")} đ</td >                  
+                         `})
+                .join("");
+            let html_total = `<tr>
+                    <td colspan="4" class="fs-2 fw-bold my-2">Tổng Đơn Hàng</td>
+                    <td class="fs-2 fw-bold my-2">${sum.toLocaleString("en-vi")} đ</td>
+                </tr>`;
+            listItems.insertAdjacentHTML("beforeend", html_total);
+            modal_cart.classList.remove("hidden");
+        });
+    }
+</script>
+<script>
+    const $$ = document.querySelector.bind(document);
+    const $$l = document.querySelectorAll.bind(document);
+</script>
+<script src="/asset/js/sessionHandle.js"></script>
+<script src="/asset/js/data.js"></script>
+<script>
+    async function contactPage() {
+        await showProductsViewHome(0, 1);
+        HandleCart();
+        handleHearts()
+    }
+    contactPage();
+</script>

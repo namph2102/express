@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/image/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/asset/css/bill.css">
+    <title>Hóa đơn</title>
+</head>
+
+<body>
+    <div class="checkout_product">
+        <div class="container">
+            <div class="box_container_checkout">
+                <div class="row">
+                    <div class="checkout_product_box col-md-6 col-12">
+                        <h1 style="padding: 0 8px;" class="checkout_product_box-brand">
+                            <img src="/image/logo.png" alt="">
+                        </h1>
+                        <div class="checkout_product-check">
+                            <div class="icon__check">
+                                <i class="fa-regular fa-circle-check icon_check"></i>
+                            </div>
+                            <div class="checkout_product_heading">
+                                <h2>Cảm ơn bạn đã đặt hàng</h2>
+                                <p>Vui lòng kiểm tra lại toàn bộ thông tin đơn hàng <strong>#TT42b4f0nR</strong> của bạn
+                                    và
+                                    bấm nút xác nhận đơn hàng
+                                    <br>
+                                    Bấm xác nhận để hoàn thành công đoạn cuối cùng <strong
+                                        style="color: red;font-size: 16px;">"Xin lỗi vì sự bất tiện này" </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="padding:0px 24px ;">
+                            <div class="checkout_product_footer">
+                                <h2>Thông tin Khách Hàng</h2>
+                                <ul class="ms-2">
+                                    <li> Tên: <span class="fullname">Phạm hoài Nam</span></li>
+                                    <li> Phone: <span class="phone">0325024277</span></li>
+                                    <li> Địa chỉ: <span class="address">200/34 Đông Hưng Thuận, Quận 12</span></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col-md-6 col-12 subprice-price">
+                        <h4 class="subprice-price_container">
+                            <div class="text-muted container_paymoney_ifm_header-head">Mã Hóa Đơn
+                                <code> #TT42b4f0nR</code><sup>0</sup>
+                            </div>
+
+                        </h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="list-group-item_flex">
+                                    <img src="/image/cakes/id3.jpg">
+                                    <div>
+                                        <h6>Bia Heniken</h6>
+                                        <small>25,000 đ x 9</small>
+                                    </div>
+                                </div>
+                                <span class="total_item_paymoney">225,000 đ</span>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="list-group-item_flex">
+                                    <img src="/image/cakes/id3.jpg">
+                                    <div>
+                                        <h6>Bia Heniken</h6>
+                                        <small>25,000 đ x 9</small>
+                                    </div>
+                                </div>
+                                <span class="total_item_paymoney">225,000 đ</span>
+                            </li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <h1 class="fs-4 fw-bold">Tổng Tiền:</h1>
+                            <div class="paytoltol fw-bold fs-4">577500</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-group-item_flex mt-4">
+                <button class="btn btn-success continue_xacthuc" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"><a>Xác Nhận Đơn
+                        Hàng</a></button>
+                <button class="continue_buy"><a class="btn btn-primary" href="/home">Tiếp Tục Mua
+                        Hàng</a></button>
+                <button onclick="window.print();" class="btn btn-danger"><a href="#!"><i class="fa-solid fa-print"></i>
+                        In</a></button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Cảm ơn quý khách đã xác thực thành công để đặt hàng!
+                    <p>Khi nhận hàng nhớ kiểm tra kỹ nhé !</p>
+                    <p>Chúc quý khách nhiều sức khỏe !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button"><a class="btn btn-primary" href="/home">Về Home</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    const $$ = document.querySelector.bind(document);
+    const $$l = document.querySelectorAll.bind(document);
+
+</script>
+<script src="/asset/js/sessionHandle.js"></script>
+<script src="/asset/js/bill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Bánh Sinh Nhật",
+    "image": "/image/category1.jpg",
+    "slug": "banh-sinh-nhat"
+  },
+  {
+    "id": 2,
+    "title": "Đồ Uống / Kem Tươi",
+    "image": "/image/category2.jpg",
+    "slug": "do-uong-kem-tuoi"
+  },
+  {
+    "id": 3,
+    "title": "Bánh Mỳ / Bánh ngọt",
+    "image": "/image/category3.jpg",
+    "slug": "banh-my-banh-ngot"
+  },
+  {
+    "id": 4,
+    "title": "Ăn Nhẹ / Lạnh",
+    "image": "/image/category4.jpg",
+    "slug": "an-nhe-lanh"
+  }
+]

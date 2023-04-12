@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/asset/css/cart.css">
+<main>
+    <div class="container">
+        <div class="news__container">
+            <div class="products__kind">
+                <h2 class="products__kind--title">Tin Tức</h2>
+            </div>
+            <div id="news" class="row news__container--content">
+                <div class="news__item col-lg-4 col-6">
+                    <a class="news__item--link__container" href="">
+                        <figure>
+                            <div class="news__item--box__avata">
+                                <img src="/image/slide1.jpg" alt="">
+                            </div>
+                            <figcaption>
+                                <h4 class="news__item--title"><a href="http://">KHÓA HỌC LÀM BÁN dsa sda saH DÀNH
+                                        CHO CÁC BÉ!</a></h4>
+                                <p class="news__item--des">aTdssadsadsadsadasd dsasda asddsad sadsa 'Bakery hiện tại
+                                    đang có khóa học làm bánh dành cho các bé từ độ tuổi 20 tới 30</p>
+                            </figcaption>
+                            <div class="overlay_news">
+
+                            </div>
+                            <div class="news__item---open">
+                                18/06
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="news__item--seeall">
+                        <a href="http://">Xem Thêm ...</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    const $$ = document.querySelector.bind(document);
+    const $$l = document.querySelectorAll.bind(document);
+
+</script>
+<script src="/asset/js/sessionHandle.js"></script>
+<script src="/asset/js/data.js"></script>
+<script>
+    async function contactPage() {
+        await showProductsViewHome(0, 1);
+        HandleCart();
+        handleHearts();
+        showNewsHomePage(4);
+    }
+    contactPage();
+    const container = document.querySelector(".navigation__box");
+    const html = `</li>  <li class="product__navition--name"> <a href="">Tin tức</a> </li>`;
+    container.insertAdjacentHTML("beforeend", html);
+</script>

@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="/asset/css/cart.css" />
+<main>
+    <div class="container">
+        <div class="carts__address row">
+            <form class="form__user--address col-lg-6 col-12" action="">
+                <h2 class="fs-2 mt-3 mb-2" style="font-weight:600;">Thông Tin Của Bạn</h2>
+                <div class="form--group">
+                    <label for="username">Họ và Tên (*)</label>
+                    <div class="form__input">
+                        <input required id="fullname" type="text" data-name="Fullname" placeholder="Nhập họ và tên">
+                        <p class="form__input--error"></p>
+                    </div>
+
+                </div>
+
+                <div class="form--group">
+                    <label for="password">Số điện thoại (*)</label>
+                    <div class="form__input">
+                        <input required id="Phone" type="text" pattern="^\d+$" data-name="Phone"
+                            placeholder="Số điện thoại">
+                        <p class="form__input--error"> </p>
+                    </div>
+                </div>
+
+                <div class="form--group">
+                    <label for="password">Email (*)</label>
+                    <div class="form__input">
+                        <input required id="email" type="email" data-name="email" placeholder="Email">
+                        <p class="form__input--error"> </p>
+                    </div>
+                </div>
+                <div class="form--group">
+                    <label for="password">Ghi chú (*)</label>
+                    <div class="form__input">
+                        <textarea required name="note" id="" rows="10" placeholder="Nội Dung liên hệ: "></textarea>
+                    </div>
+                </div>
+                <div class="button__green">
+                    <button type="submit" class="w-100 btn"><a class="w-100">Gửi</a></button>
+                </div>
+            </form>
+
+            <div class="admin__address col-lg-6 col-12">
+                <h2 class="fs-2 mt-3 mb-2" style="font-weight:600;">Thông tin liên hệ</h2>
+                <p class="mt-4 fw-500" style="line-height: 1.5;">Chúng tôi muốn nghe ý kiến ​​của bạn về dịch vụ khách
+                    hàng, hàng hóa, trang web của chúng tôi hoặc bất kỳ chủ đề nào bạn muốn chia sẻ với chúng tôi. Ý
+                    kiến ​​và đề xuất của bạn sẽ được đánh giá cao. Hãy hoàn thành mẫu đơn dưới dây.</p>
+                <div class="footer__body  footer__address">
+                    <div class="footer__address--container">
+                        <div class="address--item">
+                            <div class="address--item__body">
+                                <div class="address--item__body--icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="address--item__body--info">
+                                    <h6 class="address__title"> Địa Chỉ:</h6>
+                                    <div class="address__local">200/34 Tô ký, Phường Đông Hưng Thuận, Quận 12, TP HCM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address--item__body">
+                                <div class="address--item__body--icon">
+                                    <i class="fa-solid fa-mobile"></i>
+                                </div>
+                                <div class="address--item__body--info">
+                                    <h6 class="address__title"> Điện thoại:</h6>
+                                    <div class="address__local"><a href="tel:+8477669990">0877.669.990</a></div>
+                                </div>
+                            </div>
+
+                            <div class="address--item__body">
+                                <div class="address--item__body--icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="address--item__body--info">
+                                    <h6 class="address__title"> Email:</h6>
+                                    <div class="address__local"><a
+                                            href="mailto:namph2102@gmail.com">namph2102@gmail.com</a></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>
+<script>
+    const $$ = document.querySelector.bind(document);
+    const $$l = document.querySelectorAll.bind(document);
+</script>
+<script src="/asset/js/sessionHandle.js"></script>
+<script src="/asset/js/data.js"></script>
+<script>
+    const container = document.querySelector(".navigation__box");
+    const html = `</li>  <li class="product__navition--name"> <a href="">Liên Hệ</a> </li>`;
+    container.insertAdjacentHTML("beforeend", html);
+
+    async function contactPage() {
+        await showProductsViewHome(0, 1);
+        HandleCart();
+        handleHearts();
+    }
+    contactPage();
+</script>

@@ -1,0 +1,95 @@
+<section>
+    <style>
+        td {
+            line-height: 80px;
+        }
+
+        .des {
+            width: 100px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .active {
+            background-color: yellow;
+        }
+    </style>
+
+    <nav class="my-2">
+
+        <a href="/admin/product/add"><button class="btn btn-success">Thêm sản phẩm</button></a>
+
+
+    </nav>
+
+    <table class="table table-dark table-striped text-center">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Avata</th>
+                <th>priceOrigin</th>
+                <th>priceSale</th>
+                <th>Status</th>
+                <th>slug</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each listproduct}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td><img src="{{this.avatar}}" width="80" height="80" alt=""></td>
+                <td>{{this.priceOrigin}}</td>
+                <td>{{this.priceSale}}</td>
+                {{#if this.status}}
+                <td>Còn hàng</td>
+                {{else}}
+                <td>Hết hàng</td>
+                {{/if}}
+                <td>{{this.slug}}</td>
+                <td>
+                    <p class="des">{{this.des}}</p>
+                </td>
+                <td><a href="/admin/product/edit/{{this._id}}"><button class="btn btn-success">Edit</button> </a> <span
+                        class="mx-1"></span><a href="/admin/product/delete/{{this._id}}">
+                        <button class="btn btn-danger ">Remove</button></a></td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+
+</section>
+<section class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination">
+
+            {{#if prePage }}
+            <li class="page-item">
+                <a class="page-link" href="/admin/product?page={{prePage}}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {{/if}}
+
+            {{#each pages}}
+            <li class="page-item"><a class="page-link {{#if this.current  }} active {{/if}}"
+                    href="/admin/product?page={{this.page}}">{{this.page}}</a></li>
+            {{/each }}
+
+            {{#if nextPage }}
+            <li class="page-item">
+                <a class="page-link" href="/admin/product?page={{nextPage}}" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {{/if}}
+
+
+        </ul>
+    </nav>
+</section>

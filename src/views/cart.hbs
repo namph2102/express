@@ -1,0 +1,185 @@
+<link rel="stylesheet" href="/asset/css/cart.css">
+<main>
+    <div class="container">
+        <div class="product_items_special">
+            <div class="product_items_special--container" style="background-color: white;">
+                <div class="row">
+                    <h1 class="product_items--table--title">Giỏ Hàng Của Bạn</h1>
+                    <div class="table__content col-lg-9 col-12">
+                        <div class="table__content--head">
+                            <div class="table__content--head__product"> Sản Phẩm</div>
+                            <div class="table__content--head__amount">Số Lượng</div>
+                            <div class="table__content--head__size">Kích Thước</div>
+                            <div class="table__content--head__total">Tổng</div>
+                        </div>
+                        <div class="table__content--body">
+                            <div class="table__content--item">
+                                <a href="" class="table__content--product">
+                                    <figure>
+                                        <img src="/image/cakes/id11.jpg" alt="">
+                                    </figure>
+                                    <div class="table__content--product__des">
+                                        <div class="product__des--name">
+                                            Bánh Sinh Nhật
+                                        </div>
+                                        <div class="product__des--price">
+                                            <span>200,222 đ</span> <del class="text-danger">200,784 đ</del>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="table__content--amount">
+                                    <div class="table__content--quantity__contain">
+                                        <button data-id="12" data-type="decrease" class="handleAmountCart"><i
+                                                class="fa-solid fa-trash-can"></i></button>
+                                        <input class="table__content--quantity__amount" type="text" readonly value="1">
+                                        <button data-id="12" data-type="increase" class="handleAmountCart"><i
+                                                class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="table__content-size">
+                                    <div class="table__content--size__contain">
+                                        <input type="radio" name="size" id="sizeS"> <label for="sizeS">S</label>
+                                        <input type="radio" class="ms-3" name="size" id="sizeM"> <label class="me-3"
+                                            for="sizeM">M</label>
+                                        <input type="radio" name="size" id="sizeL"> <label for="sizeL">L</label>
+                                    </div>
+                                </div>
+                                <div class="table__content--total">
+                                    <div class="table__content--total__contain">
+                                        200,200 đ
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box_bill_pay col-lg-3 mt-lg-0 mt-5 col-12">
+                        <div class="box_bill_pay_container">
+                            <div class="box_bill_pay-head ">đơn hàng của bạn</div>
+                            <div class="box_bill_pay-body">
+                                <div class="box_bill_pay-body_flex">
+                                    <span class="box_bill_pay-subtotal">Tổng phụ</span><span
+                                        class="box_bill_pay-subtotal_coin">550,000 đ</span>
+                                </div>
+                                <div class="box_bill_pay-body_flex">
+                                    <span class="box_bill_pay_vat">VAT</span><span class="box_bill_pay-subtotal_vat">5
+                                        %</span>
+                                </div>
+                            </div>
+                            <div class="box_bill_pay-body_total">
+                                <ul>
+                                    <li>Phí vận chuyển sẽ được tính ở trang thanh toán.</li>
+                                    <li>Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.</li>
+                                </ul>
+                                <div class="box_bill_pay-body_flex">
+                                    <span class="box_bill_pay-total">Tạm Tính</span><span
+                                        class="box_bill_pay-total_coin">577,500 đ</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-danger btn--table__order"><a>Đặt hàng</a></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carts__address row">
+            <form onsubmit="return false;" class="form__user--address col-lg-6 col-12" method="post"
+                action="/user/update">
+                <h2 class="fs-2 mt-3 mb-2" style="font-weight:600;">Thông Tin Của Bạn</h2>
+                <div class="form--group">
+                    <label for="username">Họ và Tên (*)</label>
+                    <div class="form__input">
+                        <input required id="fullname" type="text" name="fullname" data-name="Fullname"
+                            placeholder="Nhập họ và tên">
+                        <p class="form__input--error"></p>
+                    </div>
+
+                </div>
+
+                <div class="form--group">
+                    <label for="password">Số điện thoại (*)</label>
+                    <div class="form__input">
+                        <input required id="Phone" type="text" name="phone" pattern="^\d+$" data-name="Phone"
+                            placeholder="Số điện thoại">
+                        <p class="form__input--error"> </p>
+                    </div>
+                </div>
+
+                <div class="form--group">
+                    <label for="password">Địa chỉ (*)</label>
+                    <div class="form__input">
+                        <input required id="address" type="text" name="address" data-name="address"
+                            placeholder="Địa chỉ">
+                        <p class="form__input--error"> </p>
+                    </div>
+                </div>
+                <div class="form--group">
+                    <label for="password">Ghi chú (*)</label>
+                    <div class="form__input">
+                        <textarea name="note" id="" rows="10" placeholder="Nội Dung liên hệ: "></textarea>
+                    </div>
+                </div>
+                <div class="button__green">
+                    <button type="submit" class="btn w-100 btn__submit--order"><a class="w-100"> Đặt hàng</a></button>
+                </div>
+            </form>
+
+            <div class="admin__address col-lg-6 col-12">
+                <h2 class="fs-2 mt-3 mb-2" style="font-weight:600;">Thông tin liên hệ</h2>
+                <p class="mt-4 fw-500 " style="line-height: 1.5;">Mọi ý kiến về đơn hàng vui lòng liên hệ với chúng tôi
+                    qua số Điện Thoại: 087.766.9990</p>
+                <div class="footer__body  footer__address">
+                    <div class="footer__address--container">
+                        <div class="address--item">
+                            <div class="address--item__body">
+                                <div class="address--item__body--icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="address--item__body--info">
+                                    <h6 class="address__title"> Địa Chỉ:</h6>
+                                    <div class="address__local">200/34 Tô ký, Phường Đông Hưng Thuận, Quận 12, TP HCM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address--item__body">
+                                <div class="address--item__body--icon">
+                                    <i class="fa-solid fa-mobile"></i>
+                                </div>
+                                <div class="address--item__body--info">
+                                    <h6 class="address__title"> Điện thoại:</h6>
+                                    <div class="address__local"><a href="tel:+8477669990">0877.669.990</a></div>
+                                </div>
+                            </div>
+
+                            <div class="address--item__body">
+                                <div class="address--item__body--icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="address--item__body--info">
+                                    <h6 class="address__title"> Email:</h6>
+                                    <div class="address__local"><a
+                                            href="mailto:namph2102@gmail.com">namph2102@gmail.com</a></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>
+<script>
+    const $$ = document.querySelector.bind(document);
+    const $$l = document.querySelectorAll.bind(document);
+
+</script>
+<script src="/asset/js/sessionHandle.js"></script>
+<script src="/asset/js/data.js"></script>
+<script src="/asset/js/cart.js" type="module"></script>

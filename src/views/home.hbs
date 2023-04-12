@@ -1,0 +1,56 @@
+<main>
+    <div class="container">
+        <div class="row category__products">
+
+
+
+            {{#each categories}}
+            <div class="col-lg-6 col-12 row me-lg-1">
+                <a href="/categories/{{this.slug}}" class="category__item--content">
+                    <div class="category__item category__item_height__haf"
+                        style="background-image: url('{{this.image}}');">
+                        <div class="category__item--effects">
+                            <div class="category__item--effects__overlays">
+
+                            </div>
+                            <div class="category__item--effects__border slide__leftright">
+                            </div>
+                            <div class="category__item--effects__border slide__topbottom">
+                            </div>
+                        </div>
+                        <div class="category__item--des">
+                            <h3 class="/categories/{{this.slug}}">{{this.title}}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="show__products" id="show__products">
+        </div>
+    </div>
+
+    <div class="news__container">
+        <div class="products__kind">
+            <h2 class="products__kind--title">Tin Tức</h2>
+        </div>
+        <div id="news" class="row news__container--content">
+        </div>
+    </div>
+
+    <div class="map__container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62696.48503067493!2d106.61001974877101!3d10.847210746085915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175297c671c5eb9%3A0x3da2e88698b9d536!2zVGnhu4dtIELDoW5oIE1pbmggQ2jDonU!5e0!3m2!1svi!2s!4v1673416544803!5m2!1svi!2s"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    </div>
+</main>
+<script>
+    const $$ = document.querySelector.bind(document);
+    const $$l = document.querySelectorAll.bind(document);
+</script>
+<script src="/asset/js/sessionHandle.js"></script>
+<script src="/asset/js/data.js"></script>
+<script src="/asset/js/style.js"></script>

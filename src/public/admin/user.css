@@ -1,0 +1,29 @@
+.usercontainer {
+  position: relative;
+}
+
+.modal_form {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  height: 100vh;
+  background-color: #333;
+  color: white;
+}
+
+form {
+  color: white;
+  margin: auto;
+  border: 2px solid red;
+  padding: 16px;
+}
+
+.btn_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.hidden {
+  display: none;
+}/*# sourceMappingURL=user.css.map */

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/image/logo.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/asset/css/reset.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="stylesheet" href="/asset/css/style.css" />
+    <link rel="stylesheet" href="/asset/scss/style.css" />
+    <link rel="stylesheet" href="/asset/css/cart.css" />
+    <link rel="stylesheet" href="/asset/css/resposive.css" />
+
+    <title>Giỏ Hàng - HT Bakery</title>
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=3210650549173249&autoLogAppEvents=1"
+      nonce="XcxL7E7d"
+    ></script>
+    <header class="menufixed">
+      <div class="container">
+        <div class="row header_container">
+          <figure class="logo col-lg-2 col-4 order-lg-1 order-2">
+            <a href="./index.html"> <img src="/image/logo.png" alt="" /></a>
+          </figure>
+
+          <nav class="col-lg-8 col-2 order-lg-2 order-1">
+            <div class="navbar hide__of__lg_important">
+              <label for="openmenu"
+                ><i class="fa-solid fa-bars navbar_icons"></i
+              ></label>
+            </div>
+            <input type="checkbox" hidden id="openmenu" />
+            <ul class="menu">
+              <li class="hide__of__lg">
+                Menu <button class="btn_close--menu">X</button>
+              </li>
+              <li><a href="./index.html"> Trang chủ</a></li>
+              <li class="main__nav">
+                <a href="#!" class="active">Sản phẩm</a>
+                <ul class="sub__nav">
+                  <li><a href="">Bánh Sinh Nhật</a></li>
+                  <li><a href="">Đồ Uống / Kem Tươi</a></li>
+                  <li><a href="">Bánh Mì / Bánh Ngọt</a></li>
+                  <li><a href="">Ăn Nhẹ / Lạnh</a></li>
+                </ul>
+              </li>
+              <li><a href="./aboutus.html">Giới thiệu</a></li>
+              <li><a href="./news.html">Tin Tức</a></li>
+              <li><a href="./contact.html">Liên Hệ</a></li>
+              <li class="hide__of__lg_important btn__find--search">
+                <a>
+                  <i
+                    class="fa-solid fa-magnifying-glass me-3 d-inline-block"
+                  ></i>
+                  Tìm kiếm</a
+                >
+              </li>
+              <li class="hide__of__lg_important btn__resgester">
+                <a
+                  ><i class="fa-regular fa-user me-3 d-inline-block"></i> Đăng
+                  Ký/ Đăng Nhập</a
+                >
+              </li>
+              <li class="border-0 hide__of__lg_important mt-4 ps-3">
+                <span>Cần Hỗ Trợ ?</span>
+              </li>
+              <li class="border-0 hide__of__lg_important">
+                <a
+                  href="mailto:namph2102@gmail.com"
+                  class="contact__imformation"
+                  ><i class="fa-regular fa-envelope me-3"></i
+                  >namph2102@gmail.com</a
+                >
+              </li>
+              <li class="border-0 hide__of__lg_important">
+                <a href="tel:+84325024277" class="contact__imformation"
+                  ><i class="fa-solid fa-mobile-screen-button me-3"></i>
+                  0325024277</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__group--btns col-lg-2 col-3 order-lg-3 order-3">
+            <div
+              class="header__menu--right header-search d-sm-block d-none btn--open-search"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div
+              class="header__menu--right header-user d-sm-block d-none btn--login"
+            >
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="header__menu--right header-heart">
+              <i class="fa-regular fa-heart"></i>
+              <span class="count__total header__products-like__count">2</span>
+            </div>
+            <div id="cartBag" class="header__menu--right header-cart me-0">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="count__total header__products-cart__count">2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="navigation">
+      <div class="navigation__container">
+        <ul class="navigation__box">
+          <li><a href="./index.html">Trang chủ</a></li>
+          <li><a href="./index.html">/ Sản phẩm /</a></li>
+          <li><a class="product__navition--kind" href="#!"> Giỏ Hàng </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <main>
+      <div class="container">
+        <div class="product_items_special">
+          <div
+            class="product_items_special--container"
+            style="background-color: white"
+          >
+            <div class="row">
+              <h1 class="product_items--table--title">Giỏ Hàng Của Bạn</h1>
+              <div class="table__content col-lg-9 col-12">
+                <div class="table__content--head">
+                  <div class="table__content--head__product">Sản Phẩm</div>
+                  <div class="table__content--head__amount">Số Lượng</div>
+                  <div class="table__content--head__size">Kích Thước</div>
+                  <div class="table__content--head__total">Tổng</div>
+                </div>
+                <div class="table__content--body">
+                  <div class="table__content--item">
+                    <a href="" class="table__content--product">
+                      <figure>
+                        <img src="/image/cakes/id11.jpg" alt="" />
+                      </figure>
+                      <div class="table__content--product__des">
+                        <div class="product__des--name">Bánh Sinh Nhật</div>
+                        <div class="product__des--price">
+                          <span>200,222 đ</span>
+                          <del class="text-danger">200,784 đ</del>
+                        </div>
+                      </div>
+                    </a>
+                    <div class="table__content--amount">
+                      <div class="table__content--quantity__contain">
+                        <button
+                          data-id="12"
+                          data-type="decrease"
+                          class="handleAmountCart"
+                        >
+                          <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                        <input
+                          class="table__content--quantity__amount"
+                          type="text"
+                          readonly
+                          value="1"
+                        />
+                        <button
+                          data-id="12"
+                          data-type="increase"
+                          class="handleAmountCart"
+                        >
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="table__content-size">
+                      <div class="table__content--size__contain">
+                        <input type="radio" name="size" id="sizeS" />
+                        <label for="sizeS">S</label>
+                        <input
+                          type="radio"
+                          class="ms-3"
+                          name="size"
+                          id="sizeM"
+                        />
+                        <label class="me-3" for="sizeM">M</label>
+                        <input type="radio" name="size" id="sizeL" />
+                        <label for="sizeL">L</label>
+                      </div>
+                    </div>
+                    <div class="table__content--total">
+                      <div class="table__content--total__contain">
+                        200,200 đ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box_bill_pay col-lg-3 mt-lg-0 mt-5 col-12">
+                <div class="box_bill_pay_container">
+                  <div class="box_bill_pay-head">đơn hàng của bạn</div>
+                  <div class="box_bill_pay-body">
+                    <div class="box_bill_pay-body_flex">
+                      <span class="box_bill_pay-subtotal">Tổng phụ</span
+                      ><span class="box_bill_pay-subtotal_coin">550,000 đ</span>
+                    </div>
+                    <div class="box_bill_pay-body_flex">
+                      <span class="box_bill_pay_vat">VAT</span
+                      ><span class="box_bill_pay-subtotal_vat">5 %</span>
+                    </div>
+                  </div>
+                  <div class="box_bill_pay-body_total">
+                    <ul>
+                      <li>Phí vận chuyển sẽ được tính ở trang thanh toán.</li>
+                      <li>
+                        Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.
+                      </li>
+                    </ul>
+                    <div class="box_bill_pay-body_flex">
+                      <span class="box_bill_pay-total">Tạm Tính</span
+                      ><span class="box_bill_pay-total_coin">577,500 đ</span>
+                    </div>
+                  </div>
+                  <button class="btn btn-danger btn--table__order">
+                    <a>Đặt hàng</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carts__address row">
+          <form
+            class="form__user--address col-lg-6 col-12"
+            action="./bill.html"
+          >
+            <h2 class="fs-2 mt-3 mb-2" style="font-weight: 600">
+              Thông Tin Của Bạn
+            </h2>
+            <div class="form--group">
+              <label for="username">Họ và Tên (*)</label>
+              <div class="form__input">
+                <input
+                  required
+                  id="fullname"
+                  type="text"
+                  data-name="Fullname"
+                  placeholder="Nhập họ và tên"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+
+            <div class="form--group">
+              <label for="password">Số điện thoại (*)</label>
+              <div class="form__input">
+                <input
+                  required
+                  id="Phone"
+                  type="text"
+                  pattern="^\d+$"
+                  data-name="Phone"
+                  placeholder="Số điện thoại"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+
+            <div class="form--group">
+              <label for="password">Địa chỉ (*)</label>
+              <div class="form__input">
+                <input
+                  required
+                  id="address"
+                  type="text"
+                  data-name="address"
+                  placeholder="Địa chỉ"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+            <div class="form--group">
+              <label for="password">Ghi chú (*)</label>
+              <div class="form__input">
+                <textarea
+                  name="note"
+                  id=""
+                  rows="10"
+                  placeholder="Nội Dung liên hệ: "
+                ></textarea>
+              </div>
+            </div>
+            <div class="button__green">
+              <button type="submit" class="btn w-100 btn__submit--order">
+                <a class="w-100"> Đặt hàng</a>
+              </button>
+            </div>
+          </form>
+
+          <div class="admin__address col-lg-6 col-12">
+            <h2 class="fs-2 mt-3 mb-2" style="font-weight: 600">
+              Thông tin liên hệ
+            </h2>
+            <p class="mt-4 fw-500" style="line-height: 1.5">
+              Mọi ý kiến về đơn hàng vui lòng liên hệ với chúng tôi qua số Điện
+              Thoại: 087.766.9990
+            </p>
+            <div class="footer__body footer__address">
+              <div class="footer__address--container">
+                <div class="address--item">
+                  <div class="address--item__body">
+                    <div class="address--item__body--icon">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="address--item__body--info">
+                      <h6 class="address__title">Địa Chỉ:</h6>
+                      <div class="address__local">
+                        200/34 Tô ký, Phường Đông Hưng Thuận, Quận 12, TP HCM
+                      </div>
+                    </div>
+                  </div>
+                  <div class="address--item__body">
+                    <div class="address--item__body--icon">
+                      <i class="fa-solid fa-mobile"></i>
+                    </div>
+                    <div class="address--item__body--info">
+                      <h6 class="address__title">Điện thoại:</h6>
+                      <div class="address__local">
+                        <a href="tel:+8477669990">0877.669.990</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="address--item__body">
+                    <div class="address--item__body--icon">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="address--item__body--info">
+                      <h6 class="address__title">Email:</h6>
+                      <div class="address__local">
+                        <a href="mailto:namph2102@gmail.com"
+                          >namph2102@gmail.com</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal__dialog hidden">
+      <div class="row products__views-container__modal">
+        <div class="col-md-6 col-12 p-0">
+          <figure>
+            <img
+              class="product-modal--avata"
+              src="/image/cakes/id2.jpg"
+              alt=""
+            />
+          </figure>
+        </div>
+        <div class="modal__product__view--reducer">-15%</div>
+        <div class="product__views--modal__item col-md-6 col-12">
+          <div class="product__views--item__head">
+            <div>
+              <span class="product__views-des__title">Tên:</span>
+              <span class="modal__item--title"
+                ><a id="productName" href="">Bánh Sinh Nhật</a></span
+              >
+            </div>
+            <div class="mt-4">
+              <span class="product__views-des__title">Giá:</span>
+              <span class="product__views-des__price--sale">250.000 đ</span>
+              <del class="product__views-des__price--origin">250.000 đ</del>
+            </div>
+          </div>
+          <p class="product__views--item__des mt-4">
+            "Dưới bàn tay của nghệ nhân nhiều kinh nghiệm làm bánh, từ những
+            nguyên liệu như bột, kem,... đã được nhào nặn tạo lên những hình
+            khối đặc biệt, với rất nhiều chi tiết nhỏ đòi hỏi sự tỉ mỉ cao, đem
+            lại sự đặc biệt trong 1 ngày đặc biệt"
+          </p>
+          <div class="product__views--item__footer">
+            <div class="mt-4">
+              <span class="product__views-des__title">Kích Thước:</span>
+              <span class="modal__item--title modal__item--product_size">
+                <input type="radio" name="size" id="sizeS" />
+                <label for="sizeS">S</label>
+                <input type="radio" name="size" id="sizeM" />
+                <label for="sizeM">M</label>
+                <input type="radio" name="size" id="sizeL" />
+                <label for="sizeL">L</label>
+              </span>
+            </div>
+            <div class="mt-4">
+              <span class="product__views-des__title">Số Lượng:</span>
+              <span class="modal__item--product_amount">
+                <button class="product_amount--reduce">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <span>1 </span>
+                <button class="product_amount--increase">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </span>
+            </div>
+            <div>
+              <button class="product_add--cart">Thêm vào giỏ hàng</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal__dialog--close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal__cart" class="modal__container hidden">
+      <div class="modal__body--content">
+        <div class="modal__head">
+          <h2 class="modal__head--title">Giỏ Hàng</h2>
+          <div class="modal__head--close">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="modal__body hidden">
+          <!-- <div class="modal__body--product">
+                    <a href="" class="modal__body--product__avata">
+                        <img src="/image/category1.jpg" alt="">
+                    </a>
+                    <div class="modal__body--product__des">
+                        <h3 class="product__des--title pb-2"><a href="./index.html">Bánh Sinh Nhật</a></h3>
+                        <p class="product__des--price">150.000<span>₫</span></p>
+                        <div class="button__green">
+                            <a href="">Chi Tiết</a>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+        <div class="modal__body modal__body__add">
+          <div class="modal__body--product__list"></div>
+
+          <div class="modal__body__add--total">
+            <div class="d-flex justify-content-between">
+              <h5 class="fs-3 mt-2 mb-2 fw-bold">Thành Tiền</h5>
+              <p class="fs-3 fw-border">
+                <span class="total__cart">500.000 </span
+                ><span class="text-danger">₫</span>
+              </p>
+            </div>
+            <div class="button__green">
+              <a class="w-100" href="./carts.html">Xem Thêm</a>
+            </div>
+            <h6 class="fs-3">Có Thể Bạn Quan Tâm</h6>
+            <div class="modal__body__add--listporduct mt-4">
+              <div class="modal__body--product">
+                <a href="" class="modal__body--product__avata">
+                  <img src="/image/category1.jpg" alt="" />
+                </a>
+                <div class="modal__body--product__des">
+                  <h3 class="product__des--title pb-2">
+                    <a href="./index.html">Bánh Sinh Nhật</a>
+                  </h3>
+                  <p class="product__des--price">150.000<span>₫</span></p>
+                  <div class="button__green">
+                    <a href="">Chi Tiết</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal__userlog hidden">
+      <div class="userlog__container">
+        <div class="modal__head--close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="userlog__box mt-5">
+          <h6 class="fs-1 log__title">Đăng nhập</h6>
+          <form class="form__user" id="loginform" action="">
+            <div class="form--group">
+              <label for="username">UserName</label>
+              <div class="form__input">
+                <input
+                  id="username"
+                  type="text"
+                  data-name="UserName"
+                  placeholder="Nhập tên tài khoản"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+
+            <div class="form--group">
+              <label for="password">Password</label>
+              <div class="form__input">
+                <input
+                  id="password"
+                  type="password"
+                  data-name="Password"
+                  placeholder="Nhập mật khẩu"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+            <div class="form--group__footer">
+              <a href="./index.html">Quên mật khẩu? </a>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn--submitLogin">
+                  Đăng nhập
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal__container modal__hearts hidden">
+      <div class="modal__body--content">
+        <div class="modal__head">
+          <h2 class="modal__head--title">Sản phẩm yêu thích</h2>
+          <div class="modal__head--close">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+
+        <div class="modal__body" id="heart__container">
+          <div class="modal__body--product">
+            <a href="" class="modal__body--product__avata">
+              <img src="/image/category1.jpg" alt="" />
+            </a>
+            <div class="modal__body--product__des">
+              <h3 class="product__des--title pb-2">
+                <a href="./index.html">Bánh Sinh Nhật</a>
+              </h3>
+              <p class="product__des--price">150.000<span>₫</span></p>
+              <div class="button__green">
+                <a href="">Chi Tiết</a>
+              </div>
+            </div>
+            <div class="modal__hearts--close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal__userlog modal__userRegister hidden">
+      <div class="userlog__container">
+        <div class="modal__head--close modal__head--close__register">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="userlog__box mt-5">
+          <h6 class="fs-1 log__title">Đăng Ký</h6>
+          <form class="form__user" id="registerForm" action="">
+            <div class="form--group">
+              <label for="res_username">UserName</label>
+              <div class="form__input">
+                <input
+                  id="res_username"
+                  type="text"
+                  data-name="UserName"
+                  placeholder="Nhập tên tài khoản"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+
+            <div class="form--group">
+              <label for="res_password">Password</label>
+              <div class="form__input">
+                <input
+                  id="res_password"
+                  type="password"
+                  data-name="Password"
+                  placeholder="Nhập mật khẩu"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+
+            <div class="form--group">
+              <label for="repassword">Comfirm Password</label>
+              <div class="form__input">
+                <input
+                  id="repassword"
+                  type="password"
+                  data-name="Comfirm Password"
+                  placeholder="Nhập mật khẩu"
+                />
+                <p class="form__input--error"></p>
+              </div>
+            </div>
+
+            <div class="form--group__footer">
+              <a>Đăng nhập ngay?</a>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn--submitLogin">
+                  Đăng Ký
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal__search" class="modal__container modal__search hidden">
+      <div class="modal__body--content">
+        <div class="modal__head">
+          <h2 class="modal__head--title">Search</h2>
+          <div class="modal__head--close btn--close-search">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="search__box">
+          <input
+            id="search--input"
+            type="text"
+            placeholder="Nhập từ khóa tìm kiếm...."
+          />
+        </div>
+        <div class="modal__body">
+          <div class="modal__body--product">
+            <a href="" class="modal__body--product__avata">
+              <img src="/image/category1.jpg" alt="" />
+            </a>
+            <div class="modal__body--product__des">
+              <h3 class="product__des--title pb-2">
+                <a href="./index.html">Bánh Sinh Nhật</a>
+              </h3>
+              <p class="product__des--price">150.000<span>₫</span></p>
+              <div class="button__green">
+                <a href="">Chi Tiết</a>
+              </div>
+            </div>
+            <div class="modal__hearts--close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row footer_content">
+          <div class="col-lg-3 col-md-4 col-6">
+            <div class="footer--title">
+              <h5>Giới Thiệu</h5>
+            </div>
+            <div class="footer__body">
+              <h6 class="footer__body--title">
+                Công Ty TNHH Bánh Ngọt Hoài Nam
+              </h6>
+              <div class="footer__address">
+                <div class="footer__address--container">
+                  <div class="address--item">
+                    <div class="address--item__body">
+                      <div class="address--item__body--icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div class="address--item__body--info">
+                        <h6 class="address__title">Địa Chỉ:</h6>
+                        <div class="address__local">
+                          200/34 Tô ký, Phường Đông Hưng Thuận, Quận 12, TP HCM
+                        </div>
+                      </div>
+                    </div>
+                    <div class="address--item__body">
+                      <div class="address--item__body--icon">
+                        <i class="fa-solid fa-mobile"></i>
+                      </div>
+                      <div class="address--item__body--info">
+                        <h6 class="address__title">Điện thoại:</h6>
+                        <div class="address__local">
+                          <a href="tel:+8477669990">0877.669.990</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="address--item__body">
+                      <div class="address--item__body--icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div class="address--item__body--info">
+                        <h6 class="address__title">Email:</h6>
+                        <div class="address__local">
+                          <a href="mailto:namph2102@gmail.com"
+                            >namph2102@gmail.com</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6">
+            <div class="footer--title">
+              <h5>Facebook</h5>
+            </div>
+            <div class="footer__body">
+              <div
+                class="fb-page w-100"
+                data-href="https://www.facebook.com/profile.php?id=100087004991368"
+                data-tabs="timeline"
+                data-width=""
+                data-height="140"
+                data-small-header="false"
+                data-adapt-container-width="true"
+                data-hide-cover="false"
+                data-show-facepile="true"
+              >
+                <blockquote
+                  cite="https://www.facebook.com/profile.php?id=100087004991368"
+                  class="fb-xfbml-parse-ignore"
+                >
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100087004991368"
+                    >HT Bakery</a
+                  >
+                </blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6">
+            <div class="footer--title">
+              <h5>Danh mục</h5>
+            </div>
+            <div class="footer__body">
+              <ul>
+                <li><a href="./index.html">Trang Chủ</a></li>
+                <li><a href="./product.html">Sản Phẩm</a></li>
+                <li><a href="./aboutus.html">Giới Thiệu</a></li>
+                <li><a href="./news.html">Tin Tức</a></li>
+                <li><a href="./contact.html">Liên Hệ</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6">
+            <div class="footer--title">
+              <h5>Bản Đồ</h5>
+            </div>
+            <div class="footer__body">
+              <iframe
+                class="w-100"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62696.48503067493!2d106.61001974877101!3d10.847210746085915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175297c671c5eb9%3A0x3da2e88698b9d536!2zVGnhu4dtIELDoW5oIE1pbmggQ2jDonU!5e0!3m2!1svi!2s!4v1673416544803!5m2!1svi!2s"
+                height="200"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer_copyright col-12 row">
+        <span class="col-sm-6 col-12 text-end"> © Copyright 10/01/2023</span>
+        <span class="col-sm-6 col-12 text-start"
+          >· Bản quyền thuộc Phạm Hoài Nam</span
+        >
+      </div>
+    </footer>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+  </body>
+  <script>
+    const $$ = document.querySelector.bind(document);
+    const $$l = document.querySelectorAll.bind(document);
+  </script>
+  <script src="/asset/js/sessionHandle.js"></script>
+  <script src="/asset/js/data.js"></script>
+  <script src="/asset/js/cart.js" type="module"></script>
+</html>

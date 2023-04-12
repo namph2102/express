@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/admin/cart.css">
+<style>
+    .dsadsa {
+        text-transform: capitalize;
+    }
+
+    .btn-success {
+        text-transform: capitalize;
+
+    }
+</style>
+<div class="container">
+    <h1 class="text-center">Danh sách đơn hàng</h1>
+    <table class="table table-dark w-100 text-center">
+        <thead class="my-4 fs-5 fw-bold text-white">
+            <tr>
+                <td>Họ tên</td>
+                <td>Địa chỉ</td>
+                <td>Phone</td>
+                <td>Tổng sản phẩm</td>
+                <td colspan="2">Action</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <td>{{this.user.fullname}}</td>
+                <td>{{this.user.address}}</td>
+                <td>0{{this.user.phone}}</td>
+                <td><button class="btn btn-success" onclick="handleSubmit(`{{this._id}}`)">xem
+                        {{this.products.length}}
+                        sản
+                        phẩm</button></td>
+                <td><a href="/cart/status/{{this._id}}"><button class="btn btn-warning dsadsa">
+                            {{this.status}}
+                        </button></a></td>
+                <td><a href="/cart/delete/{{this._id}}"><button class="btn btn-danger">Xóa</button></a></td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+        </tbody>
+    </table>
+    <div class="modal_cart hidden">
+        <button class="btn_close btn btn-danger">close</button>
+        <table class="table mt-2 p-4">
+            <thead>
+                <tr class="text-white">
+                    <th>Tên</th>
+                    <th>Ảnh</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+            <tbody id="listItems" class="text-white">
+                <tr>
+                    <td>dadsa dsa</td>
+                    <td><img src="/images/" width="50px" height="50px" alt=""></td>
+                    <td>dadsa dsa</td>
+                    <td>dadsa dsa</td>
+                    <td>dadsa dsa</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    const listItems = document.getElementById("listItems");
+    const modal_cart = document.querySelector(".modal_cart");
+    document.querySelector(".btn_close").addEventListener('click', () => {
+        modal_cart.classList.toggle("hidden");
+    })
+    function handleSubmit(id) {
+
+        $.post("/cart/showcart", { _id: id }, function (data) {
+            console.log(data);
+            listItems.innerHTML = data.listData.map((product) => ` <tr>
+                    <td>${product.item.name}</td>
+                    <td><img src="${product.item.avatar}" width="50px" height="50px" alt=""></td>
+                    <td>${(product.item.priceSale * 1000).toLocaleString("en-vi")} đ</td>
+                    <td>${product.amount}</td>
+                    <td>${(product.item.priceSale * 1000 * product.amount).toLocaleString("en-vi")} đ</td >
+           
+                 <td><a href="/cart/bag/${product.item._id}|${id}"><button class='btn btn-success'>Xóa</button></a></td>
+                      </tr >
+                `).join("");
+            modal_cart.classList.remove("hidden");
+        })
+
+    }
+</script>

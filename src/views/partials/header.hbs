@@ -1,0 +1,166 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=3210650549173249&autoLogAppEvents=1"
+    nonce="XcxL7E7d"></script>
+<header class="menufixed">
+    <div class="container">
+        <div class="row header_container">
+            <figure class="logo col-lg-2 col-4  order-lg-1 order-2">
+                <a href="/home"><img src="/image/logo.png" alt=""></a>
+
+            </figure>
+
+            <nav class="col-lg-8 col-2 order-lg-2 order-1">
+                <div class="navbar hide__of__lg_important">
+                    <label for="openmenu"><i class="fa-solid fa-bars navbar_icons"></i></label>
+                </div>
+                <input type="checkbox" hidden id="openmenu">
+                <ul class="menu">
+                    <li class="hide__of__lg">Menu <button class="btn_close--menu">X</button></li>
+                    <li><a href="/home" class="#active"> Trang chủ</a></li>
+                    <li class="main__nav">
+                        <a href="#!">Sản phẩm</a>
+                        <ul class="sub__nav">
+                            <li><a href="./productDetail.html?id=1">Bánh Sinh Nhật</a></li>
+                            <li><a href="">Đồ Uống / Kem Tươi</a></li>
+                            <li><a href="">Bánh Mì / Bánh Ngọt</a></li>
+                            <li><a href="">Ăn Nhẹ / Lạnh</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/about">Giới thiệu</a></li>
+                    <li><a href="/news">Tin Tức</a></li>
+                    <li><a href="/contact">Liên Hệ</a></li>
+                    <li class="hide__of__lg_important btn__find--search"><a>
+                            <i class="fa-solid fa-magnifying-glass me-3 d-inline-block"></i>
+                            Tìm kiếm</a></li>
+                    <li class="hide__of__lg_important btn__resgester"><a><i
+                                class="fa-regular fa-user me-3 d-inline-block"></i> Đăng Ký/ Đăng Nhập</a></li>
+                    <li class="border-0 hide__of__lg_important mt-4 ps-3">
+                        <span>Cần Hỗ Trợ ?</span>
+                    </li>
+                    <li class="border-0 hide__of__lg_important"><a href="mailto:namph2102@gmail.com"
+                            class="contact__imformation"><i
+                                class="fa-regular fa-envelope me-3"></i>namph2102@gmail.com</a></li>
+                    <li class="border-0 hide__of__lg_important"><a href="tel:+84325024277"
+                            class="contact__imformation"><i class="fa-solid fa-mobile-screen-button me-3"></i>
+                            0325024277</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__group--btns col-lg-2 col-3 order-lg-3 order-3">
+                <div class="header__menu--right header-search d-sm-block d-none btn--open-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <style>
+                    .header__menu--right {
+                        position: relative;
+                    }
+
+                    .header__menu--right:hover .header__menu--righ__sub {
+                        display: block !important;
+                    }
+
+                    .header__menu--righ__sub {
+                        display: none;
+                        position: absolute;
+                        background-color: white;
+                        box-shadow: 1px 2px 3px black;
+                        min-width: 200px;
+                        font-size: 14px;
+                        left: -15px;
+                        top: 100%;
+                    }
+
+                    .header__menu--righ__sub li {
+                        padding: 12px 8px;
+                    }
+
+                    .btn_admin a {
+                        text-decoration: none;
+                        color: rgb(48, 46, 46);
+                    }
+
+                    .order a {
+                        text-decoration: none;
+                    }
+                </style>
+                <div class="header__menu--right header-user d-sm-block d-none ">
+                    <i class="fa-regular fa-user btn--login"></i>
+                    <ul class="header__menu--righ__sub">
+                        <li class="btn_logout">Đăng xuất</li>
+                        <li class="order"><a href="/order" class="text-dark">Đơn hàng</a></li>
+                        <li class="btn_admin"><a>Admin</a></li>
+                    </ul>
+                </div>
+                <div class="header__menu--right header-heart">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="count__total header__products-like__count">2</span>
+                </div>
+                <div id="cartBag" class="header__menu--right header-cart me-0">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count__total header__products-cart__count">2</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+{{#if banner}}
+{{> banner}}
+{{else}}
+<div class="navigation">
+    <div class="navigation__container">
+        <ul class="navigation__box">
+            <li><a href="/home">Trang chủ /</a></li>
+
+        </ul>
+    </div>
+</div>
+{{/if}}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    const btnlogout = document.querySelector('.btn_logout');
+    const btn_admin = document.querySelector('.btn_admin');
+    const btn_order = document.querySelector('.order');
+
+
+
+    if (!localStorage.getItem("user")) {
+        btnlogout.classList.add("hidden");
+        btn_admin.classList.add("hidden");
+        btn_order.classList.add("hidden");
+    } else {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user.permission == 'admin') {
+            btn_admin.classList.remove("hidden");
+        } else {
+            btn_admin.classList.add("hidden");
+        }
+
+    }
+    btn_admin.onclick = () => {
+        $.post("/admin", {
+            account: JSON.parse(localStorage.getItem("user")),
+            _token: localStorage.getItem("_token")
+        }, (response => {
+            if (response.status == 202) {
+                alert(response.message)
+
+                return;
+            }
+            console.log(response)
+            alert(response.message)
+            window.location.href = "/admin";
+        }))
+
+    }
+    btnlogout.onclick = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("idAccount");
+        location.reload();
+
+    }
+</script>

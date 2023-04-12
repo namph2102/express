@@ -1,0 +1,63 @@
+<div class="container">
+    {{#if isSet}}
+    <form method="POST" action="/admin/product/edit/{{product._id}}" class="row">
+        {{else}}
+        <form method="POST" action="/admin/product/add" enctype="multipart/form-data" class="row">
+            {{/if}}
+
+            <div class="mb-3 col-6">
+                <label for="name" class="col-form-label">Tên sản phẩm</label>
+                <input type="text" {{#if isSet}} value="{{product.name}}" {{/if}} name="name" class="form-control"
+                    id="name">
+            </div>
+            <div class="mb-3 col-6">
+                <label for="priceOrigin" class="col-form-label">Giá Gốc</label>
+                <input type="number" {{#if isSet}} value="{{product.priceOrigin}}" {{/if}} name="priceOrigin"
+                    class="form-control" id="priceOrigin">
+
+            </div>
+            <div class="mb-3 col-6">
+                <label for="name" priceSaleclass="col-form-label">Giá Bán </label>
+                <input type="number" {{#if isSet}} value="{{product.priceSale}}" {{/if}} name="priceSale"
+                    class="form-control" id="priceSale">
+            </div>
+            <div class="mb-3 col-12">
+                <label for="des" class="col-form-label">Mô tả</label>
+                <textarea name="des" id="des" class="form-control"
+                    rows="3"> {{#if isSet}} {{product.des}} {{/if}}</textarea>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="material" class="col-form-label">Công thức</label>
+                <textarea name="material" id="material" class="form-control"
+                    rows="3">{{#if isSet}} {{#each   product.material}}{{this}} /{{/each}}{{/if}}</textarea>
+            </div>
+
+
+            <div class="mb-3 col-6">
+                <label for="name" class="col-form-label">Ảnh</label>
+                {{#if isSet}}
+                {{else}}
+                <input type="file" name="myFile" class="form-control" id="link">
+                {{/if}}
+
+
+                <select name="kind" class="form-select my-4" aria-label="Default select example">
+
+                    {{#if isSet}} <option value="{{product.kind}}">{{product.name}}</option>
+                    {{else}}
+                    <option value="">Chọn loại hàng</option>
+                    {{/if}}
+                    {{#each categories}}
+                    <option value="{{this.id}}">{{this.title}}</option>
+                    {{/each}}
+
+                </select>
+            </div>
+            <div class="col-2">
+                {{#if isSet}}
+                <img width="50px" height="50px" src="{{product.avatar}}" alt="">
+                {{/if}}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>

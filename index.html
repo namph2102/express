@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    .btn_status {
+      background-color: rgb(1, 78, 1);
+      padding: 8px 12px;
+      color: white;
+      border-radius: 8px;
+      text-transform: capitalize;
+    }
+    #viewProduct_container {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal_view-product {
+      margin-top: 60px;
+      min-width: 400px;
+      background-color: white;
+      position: relative;
+    }
+    .btn-success {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .modal_cart.hidden {
+      display: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Đơn hàng của bạn</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Mã đơn hàng</td>
+            <td>Người nhận</td>
+            <td>Số điện thoại</td>
+            <td>Địa chỉ</td>
+            <td>Trạng thái</td>
+            <td>Xem sản phẩm</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>145552</td>
+            <td>Phạm Hoài Nam</td>
+            <td>0877669990</td>
+            <td>2124 đông hưng thuận</td>
+            <td><span class="btn_status">Chờ Xác nhận</span></td>
+            <td><button>Xem đơn hàng</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+  <script>
+    const listItems = document.getElementById("listItems");
+    const modal_cart = document.querySelector(".modal_cart");
+    document.querySelector(".btn_close-view").addEventListener("click", () => {
+      modal_cart.classList.toggle("hidden");
+    });
+    handleSubmit("642fac9728491acc28f4f743");
+    function handleSubmit(id) {
+      $.post("/cart/showcart", { _id: id }, function (data) {
+        console.log(data);
+        listItems.innerHTML = data.listData
+          .map(
+            (product) => ` <tr>
+                        <td>${product.item.name}</td>
+                        <td><img src="${
+                          product.item.avatar
+                        }" width="50px" height="50px" alt=""></td>
+                        <td>${(product.item.priceSale * 1000).toLocaleString(
+                          "en-vi"
+                        )} đ</td>
+                        <td>${product.amount}</td>
+                        <td>${(
+                          product.item.priceSale *
+                          1000 *
+                          product.amount
+                        ).toLocaleString("en-vi")} đ</td >
+               
+                  
+                    `
+          )
+          .join("");
+        modal_cart.classList.remove("hidden");
+      });
+    }
+  </script>
+</html>

@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="/admin/user.css">
+<div class="container usercontainer">
+    <h1 class="text-center">Danh sách users</h1>
+    {{#if delete}}
+    <p class="text-center text-danger">Xóa thành công {{delete}}</p>
+    {{/if}}
+    <p><button type="button" id="btn-open" class="btn btn-success">Thêm User</button></p>
+    <table class="w-100 table table-dark text-center">
+        <thead>
+            <tr>
+
+                <th>UserName</th>
+                <th>fullname</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Chức vụ</th>
+                <th>Xóa</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+
+                <td>{{this.username}}</td>
+                <td>{{this.fullname}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.permission}}</td>
+                <td><a href="/admin/user/{{this._id}}"><button class="btn btn-danger"> Xóa</button></a></td>
+            </tr>
+            {{/each}}
+
+
+        </tbody>
+    </table>
+    <div id="modal_add" class="modal_form hidden">
+        <form action="/user/register" method="post">
+            <div>
+                <h2>Đăng ký tài khoản</h2>
+                <button type="button" class="btn btn-danger btn_close">Close</button>
+            </div>
+            <div class="mb-3 mt-4">
+                <label for="exampleInputEmail1" class="form-label">Tài khoản</label>
+                <input required type="text" name="adminusername" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 mt-4">
+                <label for="password" class="form-label">Password</label>
+                <input required type="password" name="adminpassword" class="form-control" id="password">
+            </div>
+            <div>
+                <select name="adminpermission">
+                    <option value="member">Chọn chức vụ</option>
+                    <option value="admin">Admin</option>
+                    <option value="member">member</option>
+
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+
+</div>
+<script>
+    const modal_add = document.querySelector("#modal_add");
+    document.querySelector("#btn-open").addEventListener('click', function () {
+        modal_add.classList.toggle("hidden")
+    })
+    const btn_close = document.querySelector(".btn_close");
+    btn_close.addEventListener("click", function () {
+        modal_add.classList.toggle("hidden")
+    })
+</script>

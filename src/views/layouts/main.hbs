@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/image/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="/asset/css/reset.css">
+    <link rel="stylesheet" href="/asset/css/style.css">
+    <link rel="stylesheet" href="/asset/css/resposive.css">
+
+    <title>HT Bakery</title>
+</head>
+
+<body>
+    {{> header}}
+
+    <div class="modal__dialog hidden">
+        <div class="row products__views-container__modal">
+            <div class="col-md-6 col-12 p-0">
+                <figure>
+                    <img class="product-modal--avata" src="/image/cakes/id2.jpg" alt="">
+                </figure>
+            </div>
+            <div class="modal__product__view--reducer">
+                -15%
+            </div>
+            <div class="product__views--modal__item col-md-6 col-12">
+                <div class="product__views--item__head">
+                    <div>
+                        <span class="product__views-des__title">Tên:</span>
+                        <span class="modal__item--title"><a id="productName" href="">Bánh Sinh Nhật</a></span>
+                    </div>
+                    <div class="mt-4">
+                        <span class="product__views-des__title">Giá:</span>
+                        <span class="product__views-des__price--sale">250.000 đ</span> <del
+                            class="product__views-des__price--origin">250.000 đ</del>
+                    </div>
+                </div>
+                <p class="product__views--item__des mt-4">
+                    "Dưới bàn tay của nghệ nhân nhiều kinh nghiệm làm bánh, từ những nguyên liệu như bột, kem,... đã
+                    được
+                    nhào nặn tạo lên những hình khối đặc biệt, với rất nhiều chi tiết nhỏ đòi hỏi sự tỉ mỉ cao, đem lại
+                    sự đặc biệt trong 1 ngày đặc biệt"
+                </p>
+                <div class="product__views--item__footer">
+                    <div class="mt-4">
+                        <span class="product__views-des__title">Kích Thước:</span>
+                        <span class="modal__item--title modal__item--product_size">
+                            <input type="radio" name="size" id="sizeS"> <label for="sizeS">S</label>
+                            <input type="radio" name="size" id="sizeM"> <label for="sizeM">M</label>
+                            <input type="radio" name="size" id="sizeL"> <label for="sizeL">L</label>
+                        </span>
+                    </div>
+                    <div class="mt-4">
+                        <span class="product__views-des__title">Số Lượng:</span>
+                        <span class="modal__item--product_amount">
+                            <button class="product_amount--reduce"><i class="fa-solid fa-minus"></i></button>
+                            <span>1 </span>
+                            <button class="product_amount--increase"><i class="fa-solid fa-plus"></i></button>
+                        </span>
+                    </div>
+                    <div>
+                        <button class="product_add--cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__dialog--close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal__cart" class="modal__container hidden">
+        <div class="modal__body--content">
+            <div class="modal__head">
+                <h2 class="modal__head--title">Giỏ Hàng</h2>
+                <div class="modal__head--close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="modal__body hidden">
+                <div class="modal__body--product">
+                    <a href="" class="modal__body--product__avata">
+                        <img src="/image/category1.jpg" alt="">
+                    </a>
+                    <div class="modal__body--product__des">
+                        <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                        <p class="product__des--price">150.000<span>₫</span></p>
+                        <div class="button__green">
+                            <a href="">Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__body--product">
+                    <a href="" class="modal__body--product__avata">
+                        <img src="/image/category1.jpg" alt="">
+                    </a>
+                    <div class="modal__body--product__des">
+                        <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                        <p class="product__des--price">150.000<span>₫</span></p>
+                        <div class="button__green">
+                            <a href="">Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__body--product">
+                    <a href="" class="modal__body--product__avata">
+                        <img src="/image/category1.jpg" alt="">
+                    </a>
+                    <div class="modal__body--product__des">
+                        <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                        <p class="product__des--price">150.000<span>₫</span></p>
+                        <div class="button__green">
+                            <a href="">Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__body modal__body__add">
+                <div class="modal__body--product__list">
+
+                </div>
+                <!-- <div class="modal__body--product">
+                    <a href="" class="modal__body--product__avata">
+                        <img src="/image/category1.jpg" alt="">
+                    </a>
+                    <div class="modal__body--product__des">
+                        <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                      <p class="product__des--price">500,0000 x <span class="product__des--amount"> 1</span><span> ₫</span></p>
+                        <div class="product__des--controller">
+                            <button data-id="1" class="cart__decrease"><i class="fa-solid fa-minus"></i></button>
+                            <input class="product__des--controller__amount" type="number" value="12">
+                            <button data-id="1"  class="cart__increase"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="modal__body__add--total">
+                    <div class="d-flex justify-content-between mt-4 mb-4">
+                        <h5 class="fs-3 mt-2 mb-2 fw-bold">Thành Tiền</h5>
+                        <p class="fs-3 fw-border"><span class="total__cart">500.000 </span><span
+                                class="text-danger">₫</span> </p>
+                    </div>
+                    <div class="button__green">
+                        <a class="w-100" href="/cart">Xem Thêm</a>
+                    </div>
+                    <h6 class="fs-3">Có Thể Bạn Quan Tâm</h6>
+                    <div class="modal__body__add--listporduct mt-4">
+                        <div class="modal__body--product">
+                            <a href="" class="modal__body--product__avata">
+                                <img src="/image/category1.jpg" alt="">
+                            </a>
+                            <div class="modal__body--product__des">
+                                <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                                <p class="product__des--price">150.000<span>₫</span></p>
+                                <div class="button__green">
+                                    <a href="">Chi Tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__body--product">
+                            <a href="" class="modal__body--product__avata">
+                                <img src="/image/category1.jpg" alt="">
+                            </a>
+                            <div class="modal__body--product__des">
+                                <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                                <p class="product__des--price">150.000<span>₫</span></p>
+                                <div class="button__green">
+                                    <a href="">Chi Tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__body--product">
+                            <a href="" class="modal__body--product__avata">
+                                <img src="/image/category1.jpg" alt="">
+                            </a>
+                            <div class="modal__body--product__des">
+                                <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                                <p class="product__des--price">150.000<span>₫</span></p>
+                                <div class="button__green">
+                                    <a href="">Chi Tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__body--product">
+                            <a href="" class="modal__body--product__avata">
+                                <img src="/image/category1.jpg" alt="">
+                            </a>
+                            <div class="modal__body--product__des">
+                                <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                                <p class="product__des--price">150.000<span>₫</span></p>
+                                <div class="button__green">
+                                    <a href="">Chi Tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__body--product">
+                            <a href="" class="modal__body--product__avata">
+                                <img src="/image/category1.jpg" alt="">
+                            </a>
+                            <div class="modal__body--product__des">
+                                <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                                <p class="product__des--price">150.000<span>₫</span></p>
+                                <div class="button__green">
+                                    <a href="">Chi Tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal__userlog hidden" data-type="login">
+        <div class="userlog__container">
+            <div class="modal__head--close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="userlog__box mt-5">
+                <h6 class="fs-1 log__title">Đăng nhập</h6>
+                <form class="form__user" id="loginform" action="">
+                    <div class="form--group">
+                        <label for="username">UserName</label>
+                        <div class="form__input">
+                            <input id="username" type="text" data-name="UserName" placeholder="Nhập tên tài khoản">
+                            <p class="form__input--error"></p>
+                        </div>
+
+                    </div>
+
+                    <div class="form--group">
+                        <label for="password">Password</label>
+                        <div class="form__input">
+                            <input id="password" type="password" data-name="Password" placeholder="Nhập mật khẩu">
+                            <p class="form__input--error"></p>
+                        </div>
+                    </div>
+                    <div class="form--group__footer">
+                        <a href="http://">Quên mật khẩu? </a>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn--submitLogin">Đăng nhập</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal__userlog modal__userRegister hidden" data-type="register">
+        <div class="userlog__container">
+            <div class="modal__head--close modal__head--close__register">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="userlog__box mt-5">
+                <h6 class="fs-1 log__title">Đăng Ký</h6>
+                <form class="form__user" id="registerForm" method="post" action="/user/register">
+                    <div class="form--group">
+                        <label for="res_username">UserName</label>
+                        <div class="form__input">
+                            <input id="res_username" type="text" name="username" data-name="UserName"
+                                placeholder="Nhập tên tài khoản">
+                            <p class="form__input--error"></p>
+                        </div>
+
+                    </div>
+
+                    <div class="form--group">
+                        <label for="res_password">Password</label>
+                        <div class="form__input">
+                            <input id="res_password" type="password" name="password" data-name="Password"
+                                placeholder="Nhập mật khẩu">
+                            <p class="form__input--error"></p>
+                        </div>
+                    </div>
+
+                    <div class="form--group">
+                        <label for="repassword">Comfirm Password</label>
+                        <div class="form__input">
+                            <input id="repassword" type="password" data-name="Comfirm Password"
+                                placeholder="Nhập mật khẩu">
+                            <p class="form__input--error"></p>
+                        </div>
+                    </div>
+
+
+                    <div class="form--group__footer">
+                        <a class="btn_loginnow">Đăng nhập ngay?</a>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn--submitLogin">Đăng Ký</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal__container modal__hearts hidden">
+        <div class="modal__body--content">
+            <div class="modal__head">
+                <h2 class="modal__head--title">Sản phẩm yêu thích</h2>
+                <div class="modal__head--close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+
+            <div class="modal__body" id="heart__container">
+                <div class="modal__body--product">
+
+                    <a href="" class="modal__body--product__avata">
+                        <img src="/image/category1.jpg" alt="">
+                    </a>
+                    <div class="modal__body--product__des">
+                        <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                        <p class="product__des--price">150.000<span>₫</span></p>
+                        <div class="button__green">
+                            <a href="">Chi Tiết</a>
+                        </div>
+                    </div>
+                    <div class="modal__hearts--close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal__search" class="modal__container modal__search hidden">
+        <div class="modal__body--content">
+            <div class="modal__head">
+                <h2 class="modal__head--title">Search</h2>
+                <div class="modal__head--close btn--close-search">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="search__box">
+                <input id="search--input" type="text" placeholder="Nhập từ khóa tìm kiếm....">
+            </div>
+            <div class="modal__body">
+                <div class="modal__body--product">
+
+                    <a href="" class="modal__body--product__avata">
+                        <img src="/image/category1.jpg" alt="">
+                    </a>
+                    <div class="modal__body--product__des">
+                        <h3 class="product__des--title pb-2"><a href="http://">Bánh Sinh Nhật</a></h3>
+                        <p class="product__des--price">150.000<span>₫</span></p>
+                        <div class="button__green">
+                            <a href="">Chi Tiết</a>
+                        </div>
+                    </div>
+                    <div class="modal__hearts--close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{{body}}}
+
+    {{> footer}}
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+</html>

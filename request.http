@@ -1,0 +1,19 @@
+POST  http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "username":"Hoainam2",
+    "password": "12212"
+}
+
+###
+POST  http://localhost:3000/user/update
+Content-Type: application/json
+
+{
+    "account":"phamhoainamvn21",
+    "phone":"0877669990",
+    "address":"asdas dsa dsa sad",
+    "fullname":"HoaiNam"
+}
+

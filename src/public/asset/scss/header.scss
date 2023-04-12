@@ -1,0 +1,116 @@
+
+
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    height: var(--header-height);
+    align-items: center;
+    figure {
+        img {
+            width: 164px;
+        }
+    }
+    .navbar{
+        .navbar_icons{
+            font-size: 2.4rem;
+            cursor: pointer;
+            &:hover{
+                color: var(--text-hover);
+            }
+        }
+         
+    }
+    .menu {
+        display: flex;
+        justify-content: center;
+        >li{
+            &:hover{
+               >a{
+                   color: var(--text-hover);
+               }
+            }
+        }
+        a {
+            display: flex;
+            height: var(--header-height);
+            padding: 0 12px;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1.6rem;
+            text-transform: capitalize;
+           
+        }
+        .contact__imformation{
+            display: inline-block;
+            font-size: 1.2rem;
+        }
+        .main__nav{
+            position: relative;
+            &:hover{
+                .sub__nav{
+                    display: block;
+                }
+            }
+            .sub__nav{
+                display: none;
+                position: absolute;
+                top: 98%;
+                background-color: var(--while-color);
+                width: 250px;
+                box-shadow:0px 0px 4px #b7abab;
+               
+                 a{
+                    height: unset;
+                    padding: 12px 16px;
+                   
+                }
+                li{
+                    transition: all 0.4s ease-in-out;
+                    &:hover{
+                        margin-left: 12px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .header__group--btns {
+        display: flex;
+        justify-content: flex-end;
+
+        .header__menu--right {
+            position: relative;
+            font-size: 2.2rem;
+            margin-right: 16px;
+            cursor: pointer;
+
+            i {
+                &:hover {
+                    color: var(--text-hover);
+                }
+            }
+            .count__total{
+                position: absolute;
+                right: -6px;
+                top: -10px;
+                background-color: var(--primary-green-color);
+                display: inline-block;
+                width: 1.6rem;
+                height: 1.6rem;
+                line-height: 1.6rem;
+                font-size: 1.2rem;
+                border-radius: 50%;
+                text-align: center;
+                font-weight: 500;
+                color: var(--while-color);
+                box-shadow: 1px 2px 3px gray;
+            }
+        }
+    }
+
+}
+
+

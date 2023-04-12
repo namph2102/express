@@ -1,0 +1,86 @@
+<h3 class="text-center">WELCOME TO ADMIN</h3>
+<style>
+    .info_box {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .info_box-item {
+        width: 250px;
+        background-color: gray;
+        text-align: center;
+        font-size: 18px;
+        color: white;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        padding: 0 12px;
+    }
+
+    .containerbox {
+        width: 1200px;
+        height: 500px;
+    }
+</style>
+<div class="info_box">
+
+    <div class="info_box-item">
+        Tài khoản: {{user}}
+    </div>
+    <div class="info_box-item">
+        Số sản phẩm: {{products}}
+    </div>
+    <div class="info_box-item">
+        Tổng Đơn hàng: {{cart}}
+    </div>
+    <div class="info_box-item">
+        Danh thu tạm tính: {{totalSum}}
+    </div>
+</div>
+<div class="flex justify-content-center align-items-center mt-3">
+    <div class="m-auto containerbox">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    const ctx = document.getElementById('myChart');
+    const listname = [];
+    const listvalue = [];
+    $.post("/admin/data", {}, (res) => {
+        res.productDashboard.forEach(item => {
+            listname.push(item.name);
+            listvalue.push(item.Sales);
+        })
+        featchdata(listname, listvalue)
+
+    })
+
+    function featchdata(labels, data) {
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [...labels],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [...data],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+</script>
